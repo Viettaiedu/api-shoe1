@@ -1,5 +1,5 @@
 
-const pool = require('../config/db');
+const pool = require('../config/db.cjs');
 class Account {
     constructor(username,password ){
         this.username = username;

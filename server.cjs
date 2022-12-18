@@ -1,10 +1,12 @@
-require('dotenv').config({path: "./vars/.env"});
+'use strict';
+
+require('dotenv').config();
 
 const express = require('express');
 const path = require('path');
-const routesProducts = require('./routes/routesProduct');
-const routesAccount = require('./routes/routesAccount');
-const routesCart = require('./routes/routesCart');
+const routesProducts = require('./routes/routesProduct.cjs');
+const routesAccount = require('./routes/routesAccount.cjs');
+const routesCart = require('./routes/routesCart.cjs');
 const app = express();
 var bodyParser = require('body-parser')
 var methodOverride = require('method-override')

@@ -1,5 +1,5 @@
 
-const pool = require('../config/db');
+const pool = require('../config/db.cjs');
 class Cart {
     constructor(id,gender,size,price,star,name,image,discount,trademark,state,qty) {
         this.id = id;
