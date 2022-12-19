@@ -18,7 +18,8 @@ app.use('/public',express.static(path.join(__dirname,'/public')));
 app.use(express.json());
 app.all(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT,DELETE")
+    res.header("Access-Control-Allow-Headers", "Content-type","X-Auth-Token","Origin","Authorization","X-Requested-With");
     next()
   });
   app.use('/api/product' , routesProducts);
