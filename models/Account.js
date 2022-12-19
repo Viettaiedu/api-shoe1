@@ -1,5 +1,5 @@
 
-const pool = require('../config/db.js');
+const pool = require('../config/db');
 class Account {
     constructor(username,password ){
         this.username = username;

@@ -1,6 +1,6 @@
 
 const express = require('express');
-const productControllers = require('../controllers/productControllers.cjs');
+const productControllers = require('../controllers/productControllers');
 const router = express.Router();
 router.get('/other-brands', productControllers.getOtherBrands);
 router.post('/', productControllers.createProduct);

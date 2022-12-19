@@ -1,6 +1,6 @@
 
-const Cart = require('../models/Cart.js');
-const Product = require('../models/Product.js');
+const Cart = require('../models/Cart');
+const Product = require('../models/Product');
 exports.getCart = async (req,res,next) => {
     const [cart ,_ ] = await Cart.find();
    return res.status(200).json(cart);

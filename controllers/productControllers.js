@@ -1,5 +1,5 @@
 
-const Product = require('../models/Product.js');
+const Product = require('../models/Product');
 const PAGES_SIZE = 16;
 // [POST] /product
 exports.createProduct = async (req,res ,next) => {
@@ -10,7 +10,7 @@ exports.createProduct = async (req,res ,next) => {
 }
 // [GET] /api/product
 exports.getAllProduct = async (req,res,next) => {
-    let page = parseInt(req.query.page) ;
+    let page = parseInt(req.query.page);
    try {
        if(page) {
            let limit = (page - 1) * PAGES_SIZE;

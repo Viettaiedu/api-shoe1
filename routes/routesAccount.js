@@ -1,6 +1,6 @@
 const express  = require('express');
 const router = express.Router();
-const accountController = require('../controllers/accountController.cjs');
+const accountController = require('../controllers/accountController');
 
 // [GET]
 router.get('/login' , accountController.checkLogin,accountController.admin ,accountController.login , accountController.error);

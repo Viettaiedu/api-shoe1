@@ -1,5 +1,5 @@
 
-const pool = require('../config/db.js');
+const pool = require('../config/db');
 
 class Product {
     constructor(gender ,size , price , star , name ,image , discount ,trademark ,state) {

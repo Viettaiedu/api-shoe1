@@ -2,9 +2,9 @@ require('dotenv').config();
 
 const express = require('express');
 const path = require('path');
-const routesProducts = require('./routes/routesProduct.cjs');
-const routesAccount = require('./routes/routesAccount.cjs');
-const routesCart = require('./routes/routesCart.cjs');
+const routesProducts = require('./routes/routesProduct');
+const routesAccount = require('./routes/routesAccount');
+const routesCart = require('./routes/routesCart');
 const app = express();
 var bodyParser = require('body-parser')
 var methodOverride = require('method-override')
@@ -21,9 +21,9 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next()
   });
-app.use('/api/product' , routesProducts);
-app.use('/api/account',routesAccount)
-app.use('/api/cart',routesCart)
+  app.use('/api/product' , routesProducts);
+  app.use('/api/account',routesAccount)
+  app.use('/api/cart',routesCart)
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT , () => {
