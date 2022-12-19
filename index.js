@@ -20,6 +20,7 @@ app.all(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT,DELETE")
     res.header("Access-Control-Allow-Headers", "Content-type","X-Auth-Token","Origin","Authorization","X-Requested-With");
+    res.header("Access-Control-Request-Headers: X-PINGOTHER, Content-Type")
     next()
   });
   app.use('/api/product' , routesProducts);
