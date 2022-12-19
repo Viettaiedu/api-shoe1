@@ -1,5 +1,5 @@
 
-const Product = require('../models/Product.cjs');
+const Product = require('../models/Product.js');
 const PAGES_SIZE = 16;
 // [POST] /product
 exports.createProduct = async (req,res ,next) => {

@@ -1,4 +1,4 @@
-const Account = require("../models/Account.cjs");
+const Account = require("../models/Account.js");
 
 // [GET] /api/account/login
 exports.checkLogin = async (req, res, next) => {
