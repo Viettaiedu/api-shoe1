@@ -17,7 +17,7 @@ exports.addCart = async (req,res,next) => {
     // }else if(newQty !== cartDatabase[0].qty) {
     //     await Cart.update(parseInt(cartDatabase[0].id),newQty);
     // }
-    res.redirect('https://api-shoe1.vercel.app/cart');
+    res.redirect('https://superlative-crepe-8d38c1.netlify.app/cart');
 }
 
 
