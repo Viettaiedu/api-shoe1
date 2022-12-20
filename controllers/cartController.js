@@ -35,10 +35,10 @@ exports.addCart = async (req,res,next) => {
 
 exports.removeProductFromCart = async (req,res,next) => {
     const { id } = req.params;
-    var idDelete = parseInt(id);
-    const [cartDatabase,____] = await Cart.findById(parseInt(idDelete));
+    const [cartDatabase,____] = await Cart.findById(parseInt(id ));
     if(cartDatabase) {
-        await Cart.delete(idDelete);
+        await Cart.delete(parseInt(id ));
+        return res.redirect('/product')
         return  res.status(200).json({
             redirect:"/cart"
         });
