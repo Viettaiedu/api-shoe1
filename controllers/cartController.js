@@ -16,9 +16,15 @@ exports.addCart = async (req,res,next) => {
         await cart.save();
     }else if(newQty !== cartDatabase[0].qty) {
         await Cart.update(parseInt(cartDatabase[0].id),newQty);
+        return res.status(201).json({
+            redirect :"/cart"
+        })
     }
-    var redirect = "/cart";
-    return res.json(redirect)
+    return res.status(404).send({
+        message :"Error server"
+    })
+    
+   
 
 }
 
@@ -31,8 +37,12 @@ exports.removeProductFromCart = async (req,res,next) => {
     console.log(cartDatabase)
     if(cartDatabase) {
         await Cart.delete(idDelete);
-      return  res.redirect("/cart");
+        return  res.status(200).json({
+            redirect:"/cart"
+        });
     }
-    return  res.json("ERROR");
+    return res.status(404).send({
+        message :"Error server"
+    })
     
 }
