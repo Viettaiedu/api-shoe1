@@ -38,7 +38,7 @@ exports.removeProductFromCart = async (req,res,next) => {
     const [cartDatabase,____] = await Cart.findById(parseInt(id ));
     if(cartDatabase) {
         await Cart.delete(parseInt(id ));
-        return res.redirect('/product')
+        return res.redirect('back')
         return  res.status(200).json({
             redirect:"/cart"
         });
