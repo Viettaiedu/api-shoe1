@@ -17,7 +17,7 @@ exports.addCart = async (req,res,next) => {
     }else if(newQty !== cartDatabase[0].qty) {
         await Cart.update(parseInt(cartDatabase[0].id),newQty);
     }
-    res.status(200);
+    res.redirect("/cart");
 }
 
 
