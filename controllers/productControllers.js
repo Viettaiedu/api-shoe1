@@ -1,6 +1,6 @@
 
 const Product = require('../models/Product');
-const PAGES_SIZE = 16;
+const PAGES_SIZE = 8;
 // [POST] /product
 exports.createProduct = async (req,res ,next) => {
     const {gender ,size , price , star , name ,image , discount , trademark ,state} = req.body;
