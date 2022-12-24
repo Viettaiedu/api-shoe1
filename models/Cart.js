@@ -1,7 +1,7 @@
 
 const pool = require('../config/db.js');
 class Cart {
-    constructor(id,gender,size,price,star,name,image,discount,trademark,state,qty) {
+    constructor(id,gender,size,price,star,name,image,discount,trademark,state,qty , user_id ) {
         this.id = id;
         this.gender = gender;
         this.size = size;
@@ -13,6 +13,7 @@ class Cart {
         this.trademark = trademark;
         this.state = state;
         this.qty = qty;
+        this.user_id = user_id;
     }
     async save() {
         var today = new Date();
@@ -22,14 +23,13 @@ class Cart {
         today = mm + '/' + dd + '/' + yyyy;
         var createAt= "'"+today+"'";
         const mysql = `
-        insert into cart(id,gender,size,price,star,name,image,discount,trademark,state,qty,createAt)
-        values(${this.id},"${this.gender}",${this.size},"${this.price}",${this.star},"${this.name}","${this.image}",${this.discount},"${this.trademark}","${this.state}",${this.qty},${createAt});
+        insert into cart(id,gender,size,price,star,name,image,discount,trademark,state,qty,createAt ,user_id)
+        values(${this.id},"${this.gender}",${this.size},"${this.price}",${this.star},"${this.name}","${this.image}",${this.discount},"${this.trademark}","${this.state}",${this.qty},${createAt},'${this.user_id}');
         `
        return pool.execute(mysql);
     }
-
-    static find() {
-        const mysql =`select * from cart`;
+    static find(id) {
+        const mysql =`select * from cart where user_id=${id};`;
         return pool.execute(mysql);
     }
 

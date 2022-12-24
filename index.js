@@ -2,9 +2,9 @@ require('dotenv').config();
 
 const express = require('express');
 const path = require('path');
-const routesProducts = require('./routes/routesProduct');
-const routesAccount = require('./routes/routesAccount');
-const routesCart = require('./routes/routesCart');
+const routeProducts = require('./routes/routeProduct');
+const routeCart = require('./routes/routeCart');
+const routeUser = require('./routes/routeUser');
 const app = express();
 var bodyParser = require('body-parser')
 var methodOverride = require('method-override')
@@ -27,16 +27,14 @@ app.use(function (req, res, next) {
 app.use(methodOverride('_method'))
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded())
-// parse application/json
 app.use(bodyParser.json())
+// parse application/json
+
 app.use('/public',express.static(path.join(__dirname,'/public')));
 app.use(express.json());
-
-
-  app.use('/api/product' , routesProducts);
-  app.use('/api/account',routesAccount)
-  app.use('/api/cart',routesCart)
-
+  app.use('/api/product' , routeProducts);
+  app.use('/api/cart',routeCart)
+  app.use('/api/user',routeUser)
 const PORT = process.env.PORT || 4000;
 app.listen(PORT , () => {
     console.log(`listening on port ${PORT}`);
