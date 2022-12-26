@@ -208,6 +208,10 @@ exports.login = async (req,res) => {
               })
             }
             if(user && user[0]) {
+
+              return res.json({
+                user : user[0]
+              })
                     bcrypt.compare(req.body.password, user[0][0].password , (err, result) => {
                         if(result) {
                             var token1 = jwt.sign({
