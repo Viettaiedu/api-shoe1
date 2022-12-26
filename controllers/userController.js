@@ -212,11 +212,12 @@ exports.login = async (req,res) => {
                         if(result) {
                             var token = jwt.sign({
                                 email: user[0][0].email ,
-                                id :  user[0][0].id  
+                                id :  user[0][0].id ,
                             }, process.env.JWT_KEY, (err,token) => {
                              return  res.status(200).json({
                                    message:"Authentication successful",
                                     token:token,
+                                    role :user[0][0].role
                                 })
                             })
                         }else{
