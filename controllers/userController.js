@@ -210,7 +210,8 @@ exports.login = async (req,res) => {
             if(user && user[0]) {
 
               return res.json({
-                user : user[0]
+                user : user[0],
+                message : "Ok"
               })
                     bcrypt.compare(req.body.password, user[0][0].password , (err, result) => {
                         if(result) {
