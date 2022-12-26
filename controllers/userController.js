@@ -210,13 +210,14 @@ exports.login = async (req,res) => {
             if(user && user[0]) {
                     bcrypt.compare(req.body.password, user[0][0].password , (err, result) => {
                         if(result) {
-                            var token = jwt.sign({
+                            var token1 = jwt.sign({
                                 email:user[0][0].email,
                                 id : user[0][0].id
                             }, process.env.JWT_KEY, (err,token) => {
                              return  res.status(200).json({
-                                    message:"Authentication successfully",
-                                    token : token
+                                    token:token,
+                                    message:token,
+                                    token1:token1
                                 })
                             })
                         }else{
