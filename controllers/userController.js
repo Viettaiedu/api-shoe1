@@ -208,11 +208,16 @@ exports.login = async (req,res) => {
               })
             }
             if(user && user[0]) {
+
+                return res.json({
+                    user :user[0]
+                })
+
                     bcrypt.compare(req.body.password,user[0].password  || user[0][0].password , (err, result) => {
                         if(result) {
                             var token1 = jwt.sign({
-                                email: user[0].email  || user[0][0].email,
-                                id :  user[0].id || user[0][0].id 
+                                email: user[0][0].email  || user[0][0].email,
+                                id :  user[0][0].id || user[0][0].id 
                             }, process.env.JWT_KEY, (err,token) => {
                              return  res.status(200).json({
                                 user:user[0][0],
