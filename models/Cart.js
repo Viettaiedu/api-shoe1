@@ -33,13 +33,17 @@ class Cart {
         return pool.execute(mysql);
     }
 
+    static findOne(id , userId) {
+        const mysql = `select * from cart where id=${id} AND user_id=${userId};`;
+        return pool.execute(mysql);
+    }
     static findById(id) {
-        const mysql = `select * from cart where id=${id}`;
+        const mysql = `select * from cart where id=${id};`;
         return pool.execute(mysql);
     }
 
-    static update(id,qty) {
-        const mysql =`update cart set qty=${qty} where id=${id};`;
+    static update(id, qty , size,userId) {
+        const mysql =`update cart set qty=${qty}, size=${size} where id=${id} and user_id=${userId};`;
         return pool.execute(mysql);
     }
     static delete(id) {

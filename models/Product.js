@@ -39,10 +39,11 @@ class Product {
         return pool.execute(sql);
     }
 
-    static findById(id) {
-        const sql = `select * from product where id=${id};`;
+    static findById(id ) {
+        const sql = `select * from product where id=${id}`;
         return pool.execute(sql);
     }
+
 }
 
 module.exports = Product;

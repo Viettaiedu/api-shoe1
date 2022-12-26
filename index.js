@@ -22,7 +22,7 @@ app.use(function (req, res, next) {
   // to the API (e.g. in case you use sessions)
   res.setHeader('Access-Control-Allow-Credentials', true);
   // Pass to next layer of middleware
-  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+  // res.setHeader('Content-Type', 'application/json; charset=utf-8');
   next();
 });
 // override with the X-HTTP-Method-Override header in the request

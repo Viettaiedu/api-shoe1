@@ -201,11 +201,15 @@ exports.login = async (req,res) => {
     }else{
     User.findOne(req.body.email)
         .then(user => {
-          
+
+            if(user[0].length <= 0) {
+              return res.status(203).json({
+                message:"Email incorrect",
+              })
+            }
             if(user && user[0]) {
                     bcrypt.compare(req.body.password, user[0][0].password , (err, result) => {
                         if(result) {
-                         
                             var token = jwt.sign({
                                 email:user[0][0].email,
                                 id : user[0][0].id
@@ -222,11 +226,15 @@ exports.login = async (req,res) => {
                             })
                         }
                     })
-            }
+            }else{
+            return  res.status(404).json({
+                message:"Erroo when trying to login",
+            })
+            } 
         })
         .catch(err => {
             res.status(500).json({
-                message:"Error server",
+                message:"Erroo when trying to login",
                 error : err
             })
         })
