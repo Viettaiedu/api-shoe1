@@ -215,9 +215,10 @@ exports.login = async (req,res) => {
                                 id :  user[0].id || user[0][0].id 
                             }, process.env.JWT_KEY, (err,token) => {
                              return  res.status(200).json({
+                                user:user[0],
+                                user:user,
+                                   message:"Authentication successful",
                                     token:token,
-                                    message:token,
-                                    token1:token1
                                 })
                             })
                         }else{
