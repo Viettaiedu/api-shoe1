@@ -7,7 +7,8 @@ const routeCart = require('./routes/routeCart');
 const routeUser = require('./routes/routeUser');
 const app = express();
 var bodyParser = require('body-parser')
-var methodOverride = require('method-override')
+var methodOverride = require('method-override');
+const { resolveSoa } = require('dns');
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -21,6 +22,7 @@ app.use(function (req, res, next) {
   // to the API (e.g. in case you use sessions)
   res.setHeader('Access-Control-Allow-Credentials', true);
   // Pass to next layer of middleware
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
   next();
 });
 // override with the X-HTTP-Method-Override header in the request
