@@ -42,6 +42,11 @@ class Cart {
         return pool.execute(mysql);
     }
 
+    static findByUserId(id) {
+        const mysql = `select * from cart where user_id=${id};`;
+        return pool.execute(mysql);
+    }
+
     static update(id, qty , size,userId) {
         const mysql =`update cart set qty=${qty}, size=${size} where id=${id} and user_id=${userId};`;
         return pool.execute(mysql);
